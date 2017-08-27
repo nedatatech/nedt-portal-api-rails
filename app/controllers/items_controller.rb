@@ -25,16 +25,15 @@ class ItemsController < ApplicationController
   end
 
   # PATCH/PUT /items/1
-  #def update
-  #  if @item.update(item_params)
-  #    item.find_by(id: 1)
-  #    item.quantity = 1
-  #    item.save
-  #    render json: itm
-  #  else
-  #    render json: @item.errors, status: :unprocessable_entity
-  #  end
-  #end
+  def update 
+    @item = Item.find(params[:id])
+    if @item.update(item_params)
+      #handle sucessful update
+      render json: @item
+    else
+      render json: @item.errors, status: :unprocessable_entity
+    end
+  end
 
   # DELETE /items/1
   def destroy
@@ -65,6 +64,6 @@ class ItemsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def item_params
-      params.require(:item).permit(:name, :description)
+      params.require(:item).permit(:name, :description, :quantity)
     end
 end

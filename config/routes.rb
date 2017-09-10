@@ -8,9 +8,9 @@ Rails.application.routes.draw do
     end  
   end	  
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  put 'api/nedt-portal/items/:id', to: 'items#update'
-  get 'api/nedt-portal/items/:id', to: 'items#show' 
-  post 'api/nedt-portal/authenticate', to: 'authentication#authenticate'
-  post 'api/nedt-portal/items/create', to: 'items#create'
-  delete 'api/nedt-portal/items/:id', to: 'items#destroy'
+  put 'items/:id', to: 'items#update'
+  get 'items/:id', to: 'items#show' 
+  post 'authenticate', to: 'authentication#authenticate'
+  post 'items/create', to: 'items#create'
+  delete 'items/:id', to: 'items#destroy'
 end
